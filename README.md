@@ -30,3 +30,4 @@ Un alias est également disponible en :
 ```
 
 Si cette URL retourne une erreur (404 ou autre), vérifiez que le plugin est correctement installé et qu'aucun système de sécurité ne bloque l'accès aux routes REST.
+Si le problème persiste, rendez-vous dans **Réglages > Permaliens** de WordPress et enregistrez-les pour rafraîchir les règles de réécriture.
