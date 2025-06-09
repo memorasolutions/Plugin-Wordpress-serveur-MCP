@@ -14,3 +14,19 @@ Ce dépôt contient un squelette de plugin WordPress permettant de créer un ser
 - Confirmation requise pour les actions destructrices.
 
 Ce plugin est fourni à titre de démonstration et nécessite des développements complémentaires pour être utilisé en production.
+
+## Configuration OAuth
+
+Une fois le plugin activé, assurez-vous que l'URL suivante renvoie bien une configuration JSON :
+
+```
+/wp-json/mcp-oauth/v1/config
+```
+
+Un alias est également disponible en :
+
+```
+/wp-json/mcp/v1/config
+```
+
+Si cette URL retourne une erreur (404 ou autre), vérifiez que le plugin est correctement installé et qu'aucun système de sécurité ne bloque l'accès aux routes REST.

@@ -52,6 +52,12 @@ class WP_MCP_OAuth {
             'callback' => array($this, 'config_endpoint'),
             'permission_callback' => '__return_true' // Accès public obligatoire
         ));
+        // Alias pour éviter toute confusion sur le chemin du point de terminaison
+        register_rest_route('mcp/v1', '/config', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'config_endpoint'),
+            'permission_callback' => '__return_true'
+        ));
         
         // Endpoint d'autorisation
         register_rest_route('mcp-oauth/v1', '/authorize', array(
