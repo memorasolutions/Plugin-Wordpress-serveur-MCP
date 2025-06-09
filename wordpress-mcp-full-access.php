@@ -597,6 +597,13 @@ class WP_MCP_Full_Server {
             'callback' => array($this, 'call_tool'),
             'permission_callback' => array($this, 'check_permission')
         ));
+
+        // Route racine pour indiquer les points de terminaison disponibles
+        register_rest_route($this->namespace, '/', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'root_endpoint'),
+            'permission_callback' => '__return_true'
+        ));
     }
     
     /**
@@ -627,6 +634,18 @@ class WP_MCP_Full_Server {
      */
     public function check_permission() {
         return is_user_logged_in() && current_user_can('manage_options');
+    }
+
+    /**
+     * Point d'entrée racine pour orienter vers les bonnes URL
+     */
+    public function root_endpoint() {
+        return array(
+            'message' => 'Bienvenue sur l\'API MCP',
+            'config' => get_rest_url(null, 'mcp/v1/config'),
+            'info'   => get_rest_url(null, 'mcp/v1/info'),
+            'server' => get_rest_url(null, 'mcp/v1/server')
+        );
     }
     
     /**

@@ -29,5 +29,12 @@ Un alias est également disponible en :
 /wp-json/mcp/v1/config
 ```
 
+Vous pouvez également accéder à la racine de l'API en :
+
+```
+/wp-json/mcp/v1/
+```
+Cette URL renverra un court message listant les liens vers les points de terminaison importants.
+
 Si cette URL retourne une erreur (404 ou autre), vérifiez que le plugin est correctement installé et qu'aucun système de sécurité ne bloque l'accès aux routes REST.
 Si le problème persiste, rendez-vous dans **Réglages > Permaliens** de WordPress et enregistrez-les pour rafraîchir les règles de réécriture.
